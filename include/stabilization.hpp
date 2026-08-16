@@ -1,0 +1,27 @@
+#ifndef STABILIZATION_HPP
+#define STABILIZATION_HPP
+
+#include <cstdint>
+
+// Forward declaration of Node to resolve circular dependency
+struct Node;
+
+void create_ring(Node *n);
+
+void join_ring(Node *n, const char *existing_ip, int existing_port);
+
+void stabilize(Node *n);
+
+void notify(Node *n, Node *n_prime);
+
+void fix_fingers(Node *n, int *next);
+
+void check_predecessor(Node *n);
+
+Node *find_successor(Node *n, const uint8_t *id);
+
+Node *find_successor_remote(const Node *n, const Node *n0, const uint8_t *id);
+
+Node *closest_preceding_node(Node *n, const uint8_t *id);
+
+#endif //STABILIZATION_HPP
